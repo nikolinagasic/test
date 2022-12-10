@@ -40,3 +40,7 @@ docker-compose run django $COMMAND
 ```
 docker-compose up --build
 ```
+
+## Model
+
+![bLHDRziy3BxxLnW-1YtmzjfJtpN642oBWxXRpuhDfbfboHFb5iMm_pvPZ5mQIhVcOaiaduVVka4dh1iwbO4Ukdo5E43jX8FyLvRdTzMokl3_rMQxgpxlohgcswxylYhln_EosfJPRmBlG3HE6dttsXDylVfI1gDLFHwZtLUf09tHp56rBJVbShIzNLSrdVvVhpsYKGBHK_S6fJFsDPWxwHHSv-Yir0T_Rm4RA_lHEPDAt5hv](https://user-images.githubusercontent.com/57504983/206870348-8fffc02f-7069-486e-be9b-e0f18f9ed55d.png)
