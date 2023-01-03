@@ -10,6 +10,7 @@ Nikolina Gašić
 
 [Django](https://docs.djangoproject.com/en/4.0/) >=3.0,<4.0 \
 [psycopg2](https://pypi.org/project/psycopg2/) >=2.8\
+[django-enumfields](https://pypi.org/project/django-enumfield/)\
 [Docker](https://www.docker.com/get-started)
 
 ## Set environment variables
