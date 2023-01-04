@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+  </head>
+  <body>
+    <form method="post" action="{% url 'sign_in' %}">
+      <div class="container">
+        <img
+          class="github-icon"
+          src="{% static 'icons/logo.svg' %}"
+          alt="GitHub Logo"
+        />
+        <h1>Sign in to GitHub</h1>
+        <div class="input-container">
+          {% csrf_token %} {{ form.as_p }}
+          <input type="submit" class="btn-block" value="Sign In" />
+        </div>
+        <div class="new-to-github">
+          New to GitHub? <a href="{% url 'sign_up' %}">Create an account.</a>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

@@ -12,3 +12,6 @@ class User(BaseModel):
     bio = models.TextField()
     company = models.CharField(max_length=30)
     website = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.username
