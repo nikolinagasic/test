@@ -31,12 +31,6 @@ def sign_up(request):
                 form.cleaned_data['username'],
                 form.cleaned_data['email'],
                 form.cleaned_data['password'],
-                form.cleaned_data['firstName'],
-                form.cleaned_data['lastName'],
-                form.cleaned_data['bio'],
-                form.cleaned_data['company'],
-                form.cleaned_data['website'],
-
             )
             user.save()
             # Log the user in
