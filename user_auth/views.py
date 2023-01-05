@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 
 from .forms import SignInForm, SignUpForm
+from app_models.models import User
 
 
 def sign_in(request):
@@ -33,9 +35,8 @@ def sign_up(request):
                 form.cleaned_data['password'],
             )
             user.save()
-            # Log the user in
-            login(request, user)
-            return redirect('index')
+
+            return redirect('sign_in')
     else:
         form = SignUpForm()
     return render(request, 'sign_up.html', {'form': form})

@@ -1,7 +1,7 @@
 from django.db import models
 
 from .base import BaseModel
-from .user import User
+from .custom_user import User
 
 
 class Repository(BaseModel):

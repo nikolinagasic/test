@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-from .user import User
+from .custom_user import User
 from .repository import Repository
 from .branch import Branch
 from .pull_request import PullRequest

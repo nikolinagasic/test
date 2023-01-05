@@ -3,7 +3,7 @@ from enumfields import EnumField
 
 from .base import BaseModel
 from .enums import ReactionType
-from .user import User
+from .custom_user import User
 from .comment import Comment
 
 
