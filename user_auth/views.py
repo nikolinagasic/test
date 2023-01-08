@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
 
 from .forms import SignInForm, SignUpForm
 from app_models.models import User
@@ -15,7 +16,7 @@ def sign_in(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('index')
+                return redirect(reverse('index'))
             else:
                 # Return an error message
                 pass
@@ -36,7 +37,7 @@ def sign_up(request):
             )
             user.save()
 
-            return redirect('sign_in')
+            return redirect(reverse('index'))
     else:
         form = SignUpForm()
-    return render(request, 'sign_up.html', {'form': form})
+        return render(request, 'sign_up.html', {'form': form})
