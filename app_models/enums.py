@@ -9,10 +9,8 @@ class PullRequestStatus(Enum):
 
 
 class IssueStatus(Enum):
-    TODO = 1
-    IN_PROGRESS = 2
-    IN_REVIEW = 3
-    DONE = 4
+    OPENED = 1
+    CLOSED = 2
 
 
 class ReactionType(Enum):
