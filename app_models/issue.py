@@ -4,7 +4,7 @@ from enumfields import EnumField
 from .base import BaseModel
 from .enums import IssueStatus
 from .repository import Repository
-from .user import User
+from .custom_user import User
 
 
 class Issue(BaseModel):

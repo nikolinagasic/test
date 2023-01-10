@@ -2,7 +2,7 @@ from django.db import models
 from enumfields import EnumField
 
 from .base import BaseModel
-from .user import User
+from .custom_user import User
 from .branch import Branch
 from .enums import PullRequestStatus
 

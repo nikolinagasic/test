@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'enumfields',
     'app_models',
+    'user_auth',
+    'githubapp',
 ]
 
 MIDDLEWARE = [
@@ -95,6 +97,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = 'static/' 
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'app_models.User'
+
+LOGOUT_REDIRECT_URL = 'index'

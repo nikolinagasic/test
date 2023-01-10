@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from .base import BaseModel
 from .pull_request import PullRequest
-from .user import User
+from .custom_user import User
 from .enums import PullRequestActions
 
 

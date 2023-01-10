@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GiHub</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/header.css' %}"
+    />
+  </head>
+  <body>
+    <div class="black-header">
+      <a href="/">
+        <div class="logo-wrapper">
+          <img src="{% static 'icons/logo.svg' %}" height="32" />
+        </div>
+      </a>
+      <input
+        type="text"
+        class="user-search"
+        placeholder="Search or jump to..."
+      />
+      <a href="/" class="header-item">Pull Requests</a>
+      <a href="/" class="header-item">Issues</a>
+      <div class="right-header">
+        <a href="{% url 'logout' %}">
+          <div class="logo-wrapper-user" style="background-color: white">
+            <img src="{% static 'icons/user.svg' %}" height="10px" />
+          </div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
