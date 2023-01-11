@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <title>GitHub</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/profile.css' %}"
+    />
+  </head>
+  <body>
+    {% include "header.html" %}
+    <div class="profile-main-container">
+        <div class="profile-invisible-container">
+            <div class="profile-invisible-container-left">
+                <div class="profile-picture-wrapper-user" style="background-color: white;">
+                    <img src="{% static 'icons/user.svg' %}" height="150px" />
+                </div>
+                <div style="color: white;">
+                    {{user.username}}     
+                </div>
+                
+                {% block form %}
+                <a href="/editprofile">
+                    <button  class="edit-profile-button"> Edit profile</button>
+                 </a>
+                <div style="position:absolute; font-size:14px;">
+                    <div style="margin-top: 10px">Name: {{profile.firstName}} {{profile.lastName}}</div>
+                    <div style="margin-top: 10px">Bio: {{profile.bio}} </div>
+                    <div style="margin-top: 10px">Company: {{profile.company}}</div>
+                    <div style="margin-top: 10px">Website: {{profile.website}}</div>
+                </div>
+                {% endblock %}
+            </div>
+
+            <div>
+                <div class="profile-invisible-container-right">
+                    <div class="profile-header">
+                        Overview
+                    </div>
+                    <div class="profile-header">
+                        Repositories
+                    </div>
+                    <div class="profile-header">
+                        Projects
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
