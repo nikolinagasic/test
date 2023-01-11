@@ -238,3 +238,22 @@
 .active {
   color: #adbac7;
 }
+
+.empty-search-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 400px;
+}
+
+.empty-search-title {
+  font-size: 24;
+  font-weight: 600;
+  color: #adbac7;
+}
+
+.empty-search-paragraph {
+  font-size: 16px;
+  color: #768390;
+}

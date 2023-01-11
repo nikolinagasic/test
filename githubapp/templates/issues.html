@@ -61,9 +61,21 @@
       </div>
       <div class="issues-right-header"></div>
     </div>
-    <div id="opened-issues">
-      {% for issue in opened_issues %}
-      <div class="issue opened-issue">
+    <div id="opened-issues" style="min-height: 400px">
+      {% if opened_issues_num == 0 %}
+      <div class="empty-search-container">
+        <img
+          src="{% static 'icons/opened-black.svg' %}"
+          style="color: #768390"
+          height="24"
+        />
+        <p class="empty-search-title">No result matched your search</p>
+        <p class="empty-search-paragraph">
+          You could search all of GitHub or try an advanced search.
+        </p>
+      </div>
+      {% endif %} {% for issue in opened_issues %}
+      <div class="issue">
         <div class="issue-heading-container">
           <img src="{% static 'icons/opened-green.svg' %}" height="16" />
           <a href="#" class="issue-heading">{{ issue.repository.title }}</a>
@@ -84,8 +96,20 @@
       </div>
       {% endfor %}
     </div>
-    <div id="closed-issues" style="display: none">
-      {% for issue in closed_issues %}
+    <div id="closed-issues" style="display: none; min-height: 400px">
+      {% if closed_issues_num == 0 %}
+      <div class="empty-search-container">
+        <img
+          src="{% static 'icons/opened-black.svg' %}"
+          style="color: #768390"
+          height="24"
+        />
+        <p class="empty-search-title">No result matched your search</p>
+        <p class="empty-search-paragraph">
+          You could search all of GitHub or try an advanced search.
+        </p>
+      </div>
+      {% endif %} {% for issue in closed_issues %}
       <div class="issue">
         <div class="issue-heading-container">
           <img src="{% static 'icons/opened-green.svg' %}" height="16" />
