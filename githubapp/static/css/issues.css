@@ -119,6 +119,8 @@
   font-size: 18px;
   font-weight: 600;
   margin-right: 10px;
+  margin-left: 0;
+  padding: 0;
   text-decoration: none;
 }
 
