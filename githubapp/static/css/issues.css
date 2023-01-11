@@ -32,15 +32,15 @@
   height: 30px;
   background-color: #2d333b;
   border: 1px solid #444c56;
-  border-radius: 5px;
   display: flex;
   flex-direction: row;
-  text-decoration: none;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .filters-content {
+  background-color: #2d333b;
   align-items: center;
   font-size: 14px;
   padding: 5px 16px;
@@ -48,9 +48,6 @@
   color: #adbac7;
   display: flex;
   flex-direction: row;
-  align-self: center;
-  justify-self: center;
-  border-left: 1px solid #444c56;
 }
 
 .arrow-down {
@@ -167,6 +164,7 @@
   font-size: 14px;
   margin-left: 10px;
   margin-right: 10px;
+  padding: 0 !important;
   color: #768390;
   font-weight: bolder;
   text-decoration: none;
@@ -237,6 +235,6 @@
   color: rgb(151, 149, 149);
 }
 
-a {
-  text-decoration: none;
+.active {
+  color: #adbac7;
 }

@@ -101,6 +101,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    os.path.join(BASE_DIR, "favicon.ico"),
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

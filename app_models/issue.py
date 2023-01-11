@@ -5,7 +5,6 @@ from .base import BaseModel
 from .enums import IssueStatus
 from .repository import Repository
 from .custom_user import User
-from .label import Label
 
 
 class Issue(BaseModel):

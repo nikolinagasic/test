@@ -1,74 +1,113 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    {% load static %}
-    <meta charset="utf-8" />
-    <title>GiHub</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/issues.css' %}"
-    />
-  </head>
-  <body>
-    {% include "header.html" %}
-    <div class="main-container">
-      <div class="invisible-container">
-        <div class="invisible-container-left">
-          <button class="filters">
-            <div class="filters-content" style="border-width: 0">Created</div>
-            <div class="filters-content">Assigned</div>
-            <div class="filters-content">Mentioned</div>
-          </button>
-          <input
-            type="text"
-            class="issue-search"
-            placeholder="Search all issues"
-          />
-        </div>
+{% extends "base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/issues.css' %}" />
+{% endblock %} {% block content %}
+<div class="main-container">
+  <div class="invisible-container">
+    <div class="invisible-container-left">
+      <div class="filters">
+        <button
+          class="filters-content active-filter-button"
+          style="border-width: 0; background-color: #2d333b"
+        >
+          Created
+        </button>
+        <button
+          class="filters-content"
+          style="
+            border-width: 0;
+            border-left: 1px solid #444c56;
+            background-color: #2d333b;
+          "
+        >
+          Assigned
+        </button>
+        <button
+          class="filters-content"
+          style="
+            border-width: 0;
+            background-color: #2d333b;
+            border-left: 1px solid #444c56;
+          "
+        >
+          Mentioned
+        </button>
       </div>
-      <div class="issues-container">
-        <div class="issues-header">
-          <div class="issues-left-header">
-            <div class="issues-left-header-info">
-              <img
-                src="{% static 'icons/opened-black.svg' %}"
-                style="color: #768390"
-                height="16"
-              />
-              <a href="#" class="issues-header-item active">16 Open</a>
-            </div>
-            <div class="issues-left-header-info">
-              <img src="{% static 'icons/closed-issue.svg' %}" height="16" />
-              <a href="#" class="issues-header-item">0 Closed</a>
-            </div>
-          </div>
-          <div class="issues-right-header"></div>
-        </div>
-        {% for issue in issues %}
-          <div class="issue">
-            <div class="issue-heading-container">
-              <img src="{% static 'icons/opened-green.svg' %}" height="16" />
-              <a href="#" class="issue-heading">{{ issue.repository.title }}</a>
-              <a href="#" class="issue-heading issue-heading-muted"
-                >{{ issue.title }}</a
-              >
-                {% for label in issue.labels %}
-                  <div class="label-container">
-                    <div class="label" style="background-color: {{label.color}}">
-                      {{ label.title }}
-                    </div>
-                  </div>
-                {% endfor %}
-            </div>
-            <div class="issue-desc">
-              #{{ issue.id }} opened on {{ issue.created_at }} by {{ user.username }}
-            </div>
-          </div>
-        {% endfor %}
-      </div>
+      <input type="text" class="issue-search" placeholder="Search all issues" />
     </div>
-  </body>
-</html>
+  </div>
+  <div class="issues-container">
+    <div class="issues-header">
+      <div class="issues-left-header">
+        <div class="issues-left-header-info">
+          <img
+            src="{% static 'icons/opened-black.svg' %}"
+            style="color: #768390"
+            height="16"
+          />
+          <button id="opened-issue-button" class="issues-header-item active">
+            {{ opened_issues_num }} Open
+          </button>
+        </div>
+        <div class="issues-left-header-info">
+          <img
+            src="{% static 'icons/closed-issue.svg' %}"
+            style="color: #768390"
+            height="16"
+          />
+          <button class="issues-header-item" id="closed-issue-button">
+            {{ closed_issues_num }} Closed
+          </button>
+        </div>
+      </div>
+      <div class="issues-right-header"></div>
+    </div>
+    <div id="opened-issues">
+      {% for issue in opened_issues %}
+      <div class="issue opened-issue">
+        <div class="issue-heading-container">
+          <img src="{% static 'icons/opened-green.svg' %}" height="16" />
+          <a href="#" class="issue-heading">{{ issue.repository.title }}</a>
+          <a href="#" class="issue-heading issue-heading-muted"
+            >{{ issue.title }}</a
+          >
+          {% for label in issue.labels %}
+          <div class="label-container">
+            <div class="label" style="background-color: {{ label.color }}">
+              {{ label.title }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="issue-desc">
+          #{{ issue.id }} opened on {{ issue.created_at }} by {{user.username}}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div id="closed-issues" style="display: none">
+      {% for issue in closed_issues %}
+      <div class="issue">
+        <div class="issue-heading-container">
+          <img src="{% static 'icons/opened-green.svg' %}" height="16" />
+          <a href="#" class="issue-heading">{{ issue.repository.title }}</a>
+          <a href="#" class="issue-heading issue-heading-muted"
+            >{{ issue.title }}</a
+          >
+          {% for label in issue.labels %}
+          <div class="label-container">
+            <div class="label" style="background-color: {{ label.color }}">
+              {{ label.title }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="issue-desc">
+          #{{ issue.id }} opened on {{ issue.created_at }} by {{user.username}}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script src="{% static 'js/issues.js' %}"></script>
+{% endblock %}
