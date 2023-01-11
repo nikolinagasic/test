@@ -1,0 +1,259 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.invisible-container {
+  margin-top: 30px;
+  width: 80vw;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.invisible-container-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.invisible-container-right {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.filters {
+  height: 30px;
+  background-color: #2d333b;
+  border: 1px solid #444c56;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.filters-content {
+  background-color: #2d333b;
+  align-items: center;
+  font-size: 14px;
+  padding: 5px 16px;
+  font-weight: bolder;
+  color: #adbac7;
+  display: flex;
+  flex-direction: row;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgb(110, 109, 109);
+  margin-left: 3px;
+}
+
+.dropdown-content {
+  color: rgb(61, 61, 61);
+  font-weight: bold;
+  font-size: 13px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dropdown-header {
+  height: 35px;
+  border-bottom: 1px solid rgb(201, 201, 201);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dropdown-content-header {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 13px;
+  margin-left: 20px;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(245, 244, 244);
+}
+
+.issue {
+  background-color: #22272e;
+  width: "100%";
+  border-bottom: 1px solid #444c56;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.issue-heading-container {
+  margin: 8px 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+.issue-heading {
+  color: #768390;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-right: 2px;
+  text-decoration: none;
+  flex-direction: row;
+}
+
+.issue-heading-muted {
+  color: #adbac7;
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.issue:hover {
+  background-color: #2d333b;
+}
+
+.issues-container {
+  width: 80vw;
+  background-color: #22272e;
+  margin-top: 10px;
+  border: 1px solid #444c56;
+  border-bottom: 1px solid #444c56;
+  border-radius: 10px;
+}
+
+.issues-header {
+  padding: 16px;
+  background-color: #2d333b;
+  width: "100%";
+  border-bottom: 1px solid #444c56;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  color: #768390;
+}
+
+.issues-left-header {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.issues-left-header-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.issues-header-item {
+  font-size: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0 !important;
+  color: #768390;
+  font-weight: bolder;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  background-color: transparent;
+}
+
+.circle-small-label {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.label-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: #768390;
+}
+
+.label {
+  display: inline-block;
+  padding: 0 7px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 2em;
+  margin-left: 10px;
+  border: 1px solid #768390;
+}
+
+.issue-desc {
+  color: #768390;
+  font-size: 12px;
+  margin-left: 40px;
+  margin-bottom: 8px;
+}
+
+.issue-search {
+  background-color: #1c2128;
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 5px;
+  width: 400px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 32px;
+  padding: 5px 12px;
+}
+
+.issue-search::placeholder {
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(151, 149, 149);
+}
+
+.active {
+  color: #adbac7;
+}
+
+.empty-search-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 400px;
+}
+
+.empty-search-title {
+  font-size: 24;
+  font-weight: 600;
+  color: #adbac7;
+}
+
+.empty-search-paragraph {
+  font-size: 16px;
+  color: #768390;
+}
