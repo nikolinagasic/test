@@ -20,13 +20,18 @@ def index(request):
         return render(request, 'sign_in.html', {'form': form})
 
 def profile(request):
-
+    print(request)
     if request.user.is_authenticated:
         # Get the currently logged-in user
-        user = request.user
-        # Render a template with the user information
-        profile = User.objects.filter(username=user.username)[0]
-        return render(request, 'profile.html', {'user': user, 'profile': profile})
+        if request.method == "POST":
+            user = User.objects.get(id=request.user.id)
+            user.delete()            
+            return redirect('logout')
+        else:
+            user = request.user
+            # Render a template with the user information
+            profile = User.objects.filter(username=user.username)[0]
+            return render(request, 'profile.html', {'user': user, 'profile': profile})
     else:
         # Render template for log in
         form = SignInForm()
@@ -43,7 +48,7 @@ def edit_profile(request):
                 company = form.cleaned_data['company']
                 website = form.cleaned_data['website']
                 user = User.objects.update(username=request.user.username,firstName=firstName, lastName=lastName, bio=bio, company=company, website=website)
-            return redirect('profile')
+                return render('profile')
         else:
             form = UserForm()
             return render(request, 'edit_profile.html', {'form': form})

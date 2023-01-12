@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 300px;
+    padding-right: 10px;
   }
 
   .profile-picture-wrapper-user:hover {
@@ -115,6 +116,23 @@
 
   .edit-profile-save-button:hover {
     background-color: rgb(23, 136, 23);
+    cursor: pointer;
+    border-color:#cdd9e5;
+  }
+
+  .delete-profile-button {
+    margin: 20px 0 5px 0;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 6px;
+    border-color:#444c56;
+    background-color: rgba(255, 0, 0, 0.274);
+    color:#cdd9e5;
+    font-size: 14px;
+    width: -webkit-fill-available;
+  }
+  .delete-profile-button:hover {
+    background-color: rgba(255, 0, 0, 0.568);
     cursor: pointer;
     border-color:#cdd9e5;
   }
