@@ -6,6 +6,7 @@
     <title>GitHub</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -25,7 +26,7 @@
         placeholder="Search or jump to..."
       />
       <a href="/" class="header-item">Pull Requests</a>
-      <a href="/" class="header-item">Issues</a>
+      <a href="/issues" class="header-item">Issues</a>
       <div class="right-header navbar">
        
         <div class="dropdown">
@@ -38,7 +39,7 @@
             <a href="{% url 'logout' %}">Log out</a>
           </div>
         </div> 
-            
+
       </div>
     </div>
   </body>

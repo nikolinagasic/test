@@ -12,7 +12,7 @@ body {
 }
 
 .black-header {
-  background-color: rgb(15, 15, 15);
+  background-color: #2d333b;
   height: 70px;
   width: 100vw;
   display: flex;
@@ -46,7 +46,7 @@ body {
 }
 
 .user-search {
-  background-color: rgb(15, 15, 15);
+  background-color: #22272e;
   border: 1px solid rgb(58, 58, 58);
   border-radius: 5px;
   width: 400px;
