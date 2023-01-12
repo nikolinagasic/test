@@ -9,7 +9,7 @@ from .enums import PullRequestStatus
 
 class PullRequest(BaseModel):
     title = models.CharField(max_length=30)
-    description = models.TextField()
+    description = models.TextField(blank=True)
     state = EnumField(PullRequestStatus, default=PullRequestStatus.OPENED)
     base = models.ForeignKey(
         Branch, on_delete=models.CASCADE, related_name='base_branch')

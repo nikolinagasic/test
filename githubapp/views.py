@@ -1,8 +1,9 @@
-from re import I
 from django.shortcuts import render
 from app_models.issue import Issue
+from app_models.pull_request import PullRequest
 from app_models.label import Label
 from app_models.enums import IssueStatus
+from app_models.enums import PullRequestStatus
 
 from user_auth.forms import SignInForm
 from django.contrib.contenttypes.models import ContentType
@@ -35,5 +36,20 @@ def issues(request):
         labels = model_class.objects.filter(pk=issue.id).all()
         issue.labels = labels
 
-    print(closed_issues)
     return render(request, 'issues.html', {'user': user, 'opened_issues': opened_issues, "opened_issues_num": len(opened_issues), "closed_issues": closed_issues, "closed_issues_num": len(closed_issues)})
+
+def pulls(request):
+    user = request.user
+    pulls = PullRequest.objects.filter(creator__id=user.id).all()
+    opened_pulls = list(filter(lambda pull: pull.state == PullRequestStatus.OPENED, pulls))
+    closed_pulls = list(filter(lambda pull: pull.state == PullRequestStatus.CLOSED, pulls))
+
+    # Get labels for each pull request
+    for pull in pulls:
+        content_type = ContentType.objects.get_for_model(Label)
+        model_class = content_type.model_class()
+
+        labels = model_class.objects.filter(pk=pull.id).all()
+        pull.labels = labels
+
+    return render(request, 'pull_requests.html', {'user': user, 'opened_pulls': opened_pulls, "opened_pulls_num": len(opened_pulls), "closed_pulls": closed_pulls, "closed_pulls_num": len(closed_pulls)})      
