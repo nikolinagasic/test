@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    {% load static %}
-    <meta charset="utf-8" />
-    <title>GitHub</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/profile.css' %}"
-    />
-  </head>
-  <body>
-    {% include "header.html" %}
+{% extends "base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}" />
+{% endblock %} {% block content %}
     <div class="profile-main-container">
         <div class="profile-invisible-container">
             <div class="profile-invisible-container-left">
@@ -58,5 +45,4 @@
             </div>
         </div>
     </div>
-  </body>
-</html>
+{% endblock %}
