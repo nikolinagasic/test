@@ -9,7 +9,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('auth/', include('user_auth.urls')),
-    path('issues/',views.issues, name="issues"),
+    path('issues/', views.issues, name="issues"),
+    path('pulls/', views.pulls, name="pulls"),
     path('logout/', LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='logout'),
     path('profile/', views.profile, name="profile"),
     path('editprofile/', views.edit_profile, name="edit_profile")
