@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% load static %} {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/issues.css' %}" />
 {% endblock %} {% block content %}
     <div class="profile-main-container">
         <div class="profile-invisible-container">
@@ -31,18 +32,30 @@
 
             <div>
                 <div class="profile-invisible-container-right">
-                    <div class="profile-header">
-                        Overview
-                    </div>
-                    <div class="profile-header">
-                        Repositories
-                    </div>
-                    <div class="profile-header">
-                        Projects
-                    </div>
+                    <a href="profile/">
+                        <div class="profile-header">
+                            <img src="{% static 'icons/overview.svg' %}" style="margin-top:7px" height="16" />
+                            &nbsp; Overview
+                        </div>
+                    </a>
+                    <a href="profile/"> 
+                        <div class="profile-header">
+                            <img src="{% static 'icons/repositories.svg' %}" style="margin-top:7px" height="16" />
+                           &nbsp; Repositories
+                        </div> 
+                    </a>
+                    <a href="projects/"> 
+                        <div class="profile-header">
+                            <img src="{% static 'icons/open-projects.svg' %}" style="margin-top:7px" height="17" />
+                            &nbsp; Projects
+                        </div>   
+                    </a>
                 </div>
-                
+
             </div>
+
         </div>
+        {% block projects %} 
+        {% endblock %}
     </div>
 {% endblock %}
