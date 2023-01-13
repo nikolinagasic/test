@@ -93,6 +93,7 @@
   color: #adbac7;
   background-color: inherit;
   font-family: inherit;
+  padding-top: 10px;
 }
 
 .dropdown-content-head {
@@ -102,7 +103,7 @@
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
   border: 1px solid #444c56;
   border-radius: 6px;
-  top: 60px;
+  top: 50px;
 }
 
 .dropdown:hover .dropdown-content-head {
