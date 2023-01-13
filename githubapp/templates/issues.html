@@ -79,7 +79,8 @@
           {% endfor %}
         </div>
         <div class="issue-desc">
-          #{{ issue.id }} opened on {{ issue.created_at }} by {{issue.creator}}
+          #{{ issue.id }} opened on {{ issue.created_at }} by
+          {{issue.creator.username}}
         </div>
       </div>
       {% endfor %}
