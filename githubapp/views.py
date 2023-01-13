@@ -54,7 +54,13 @@ def edit_profile(request):
                 bio = form.cleaned_data['bio']
                 company = form.cleaned_data['company']
                 website = form.cleaned_data['website']
-                user = User.objects.update(username=request.user.username,firstName=firstName, lastName=lastName, bio=bio, company=company, website=website)
+                user = User.objects.get(username=request.user.username)
+                user.firstName = firstName
+                user.lastName = lastName
+                user.bio = bio
+                user.company = company
+                user.website = website 
+                user.save()
                 return redirect('profile')
         else:
             form = UserForm()
