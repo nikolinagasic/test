@@ -1,0 +1,11 @@
+{% extends 'profile.html' %}
+{% block form %}
+    <div class="edit-profile-container">
+        <form method="post" action="{% url 'edit_profile' %}" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a href="/profile"><button type="submit" class="edit-profile-save-button">Save</button></a>
+        </form>
+        <a href="/profile"><button class="edit-profile-save-button" style="background-color: hsla(0, 0%, 0%, 0);">Cancel</button> </a>
+    </div>
+{% endblock %}}

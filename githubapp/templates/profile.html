@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}" />
+{% endblock %} {% block content %}
+    <div class="profile-main-container">
+        <div class="profile-invisible-container">
+            <div class="profile-invisible-container-left">
+                <div class="profile-picture-wrapper-user" style="background-color: white;">
+                    <img src="{% static 'icons/user.svg' %}" height="150px" />
+                </div>
+                <div style="color: white;">
+                    {{user.username}}     
+                </div>
+                
+                {% block form %}
+                <a href="/editprofile">
+                    <button  class="edit-profile-button"> Edit profile</button>
+                 </a>
+                <div style="position:absolute; font-size:14px;">
+                    <div style="margin-top: 10px">Name: {{profile.firstName}} {{profile.lastName}}</div>
+                    <div style="margin-top: 10px">Bio: {{profile.bio}} </div>
+                    <div style="margin-top: 10px">Company: {{profile.company}}</div>
+                    <div style="margin-top: 10px">Website: {{profile.website}}</div>
+                    <form method="post" action="{% url 'profile' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Delete profile" class="delete-profile-button button"/>
+                    </form>
+                </div>
+                {% endblock %}
+            </div>
+
+            <div>
+                <div class="profile-invisible-container-right">
+                    <div class="profile-header">
+                        Overview
+                    </div>
+                    <div class="profile-header">
+                        Repositories
+                    </div>
+                    <div class="profile-header">
+                        Projects
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
