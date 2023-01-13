@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-
 from app_models.issue import Issue
 from app_models.pull_request import PullRequest
 from app_models.label import Label
@@ -9,7 +8,6 @@ from app_models.enums import PullRequestStatus
 from user_auth.forms import SignInForm
 from .forms import UserForm
 from app_models.models import User
-
 
 from django.contrib.contenttypes.models import ContentType
 
