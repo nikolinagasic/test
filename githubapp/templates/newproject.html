@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/project.css' %}" />
+{% endblock %}
+{% block content %}
+<div class="project-header">@{{user.username}}'s untitled project</div>
+<div class="project-table">
+    <div class="project-table-row">
+        <div class="project-table-cell" ></div>
+        <div class="project-table-cell" >Title</div>
+        <div class="project-table-cell" >Assigned</div>
+        <div class="project-table-cell" >Status</div>
+        <div class="project-table-cell" ></div>
+        <div class="project-table-cell" ></div>
+    </div>
+    {% for issue in issues %}
+    <div class="project-table-row">
+        <div class="project-table-cell" >{{ forloop.counter }}</div>
+        <div class="project-table-cell" >{{ issue.title }}</div>
+        <div class="project-table-cell" >{{ issue.repository }}</div>
+        <div class="project-table-cell"><select value="{issue.state}" class="select-issue-state" >
+            {% for state in states %}
+            <option value="{state}" class="option-issue-state">{{state}}</option>
+            {% endfor %}
+        </select></div>
+        <div class="project-table-cell"><a><img style="margin-left: 20px; padding-top: 5px;" src="{% static 'icons/tick.svg' %}" height="20" /></a></div>
+        <div class="project-table-cell" ><a><img style="margin-left: 20px; padding-top: 5px;" src="{% static 'icons/cross.svg' %}" height="20" /></a></div>
+    </div>
+    {% endfor %}
+
+    {% block row %}
+    {% endblock %}
+    
+</table>
+<a href="add_issue_to_project/"><img style="margin-left: 20px; padding-top: 5px;" src="{% static 'icons/plus.svg' %}" height="20" /></a>
+{% endblock %}

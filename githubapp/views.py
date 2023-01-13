@@ -1,14 +1,15 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+
 from app_models.issue import Issue
 from app_models.pull_request import PullRequest
 from app_models.label import Label
 from app_models.enums import IssueStatus
 from app_models.enums import PullRequestStatus
-
 from user_auth.forms import SignInForm
 from .forms import UserForm
 from app_models.models import User
+
 
 from django.contrib.contenttypes.models import ContentType
 
@@ -96,3 +97,29 @@ def pulls(request):
         pull.labels = labels
 
     return render(request, 'pull_requests.html', {'user': user, 'opened_pulls': opened_pulls, "opened_pulls_num": len(opened_pulls), "closed_pulls": closed_pulls, "closed_pulls_num": len(closed_pulls)})      
+
+def projects(request):
+    return render(request, 'projects.html')
+
+def newproject(request):
+    states = [IssueStatus.OPENED, IssueStatus.CLOSED]
+    issues = Issue.objects.filter(creator__id=request.user.id).all()
+    issues = [{"title":"Some title", "repository":"Some user", "state":states[0], "creator":request.user}, {"title":"Some other title", "repository":"Some other user", "state":states[0], "creator":request.user}]
+    return render(request, 'newproject.html', {'user':request.user, 'states': states, 'issues':issues})
+
+def add_issue_to_project(request):  
+    if request.user.is_authenticated:
+        states = [IssueStatus.OPENED, IssueStatus.CLOSED]
+        issues = [{"title":"Some title", "repository":"Some user", "state":states[0], "creator":request.user}, {"title":"Some other title", "repository":"Some other user", "state":states[0], "creator":request.user}]
+        if request.method == 'POST':
+            title = form.cleaned_data['title']
+            repository = form.cleaned_data['assigned']
+            state = form.cleaned_data['state']
+            issue = Issue.objects.create(title=title,repository=repository, state=state, creator=request.user)
+            return redirect('newproject',{'user':request.user, 'states': states, 'issues':issues})
+        else:
+            return render(request, 'add_issue_to_project.html', {'states': states, 'issues':issues})
+    else:
+        # Render template for log in
+        form = SignInForm()
+        return render(request, 'sign_in.html', {'form': form})

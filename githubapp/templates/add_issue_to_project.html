@@ -1,0 +1,16 @@
+{% extends 'newproject.html' %} {% load static %} 
+{% block row %}
+
+<div method="post" action="{% url 'add_issue_to_project' %}" class="project-table-row">
+    <div class="project-table-cell" style="width:5%;"></div>
+    <div class="project-table-cell" data-field="title" contenteditable></div>
+    <div class="project-table-cell" data-field="assigned" contenteditable></div>
+    <div class="project-table-cell" data-field="state"><select class="select-issue-state" >
+        {% for state in states %}
+        <option class="option-issue-state">{{state}}</option>
+        {% endfor %}
+    </select></div>
+    <div class="project-table-cell" style="width:5%;"><a href="add_issue_to_project/" type="submit"><img style="margin-left: 20px; padding-top: 5px;" src="{% static 'icons/tick.svg' %}" height="20" /></a></div>
+    <div class="project-table-cell" style="width:5%;"><a><img style="margin-left: 20px; padding-top: 5px;" src="{% static 'icons/cross.svg' %}" height="20" /></a></div>
+</div>
+{% endblock %}
