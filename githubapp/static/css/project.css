@@ -1,0 +1,50 @@
+.project-table-row {
+    display: table-row;
+    
+}
+.project-table-row:hover {
+    background-color: #252a30;
+    cursor:pointer;
+  }
+.project-header {
+    margin: 2vw;
+}
+.project-table {
+    display: table;
+    width:100%;
+    font-size: 14px;
+    text-align: left;
+    color: #cdd9e5;
+}
+.project-table-cell {
+    display: table-cell;
+    font-weight: 200;
+    padding-left: 15px;
+    border-bottom: 1pt solid #444c56;
+    height: 2vw;
+}
+
+.select-issue-state {
+    background-color: #0d1117;
+    color:#cdd9e5;
+    border: none;
+    margin-bottom: 10px;
+    width: -webkit-fill-available;
+    height: 20px;
+}
+
+.select-issue-state:hover {
+    cursor:pointer;
+}
+
+.option-issue-state {
+    background-color: #0d1117;
+    border: none;
+    color: white;
+    height: 20px;
+}
+
+.option-issue-state:hover {
+    background-color: #252a30;
+    cursor:pointer;
+}

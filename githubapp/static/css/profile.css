@@ -109,7 +109,7 @@
     border-radius: 6px;
     border-color:#444c56;
     background-color: green;
-    color:#cdd9e5;
+    color:#ddd;
     font-size: 14px;
     width: -webkit-fill-available;
   }
@@ -136,4 +136,14 @@
     cursor: pointer;
     border-color:#cdd9e5;
   }
-  
+
+  .main-projects-container {
+    align-self: self-end;
+    margin-right:23vw;
+    width: 20vw;
+    background-color: #22272e;
+    margin-top: 10px;
+    border: 1px solid #444c56;
+    border-bottom: 1px solid #444c56;
+    border-radius: 10px;
+  }

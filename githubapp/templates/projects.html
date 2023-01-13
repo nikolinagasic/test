@@ -1,0 +1,39 @@
+{% extends 'profile.html' %} {% load static %}
+{% block projects %}
+    <img style="margin: 5vw 0 1vw;" src="{% static 'icons/open-projects.svg' %}" height="25" />
+    <div>Create your first GitHub project</div>
+    <a href="newproject/"><button class="edit-profile-save-button" style="margin: 1vw 0 5vw;">New project</button></a>
+
+    <div class="main-projects-container">
+        <div class="issues-header">
+            <div class="issues-left-header">
+                <div class="issues-left-header-info">
+                 <img src="{% static 'icons/open-projects.svg' %}" height="17" />
+                  <button id="opened-issue-button" class="issues-header-item active">
+                       Open
+                   </button>
+                </div>
+            <div class="issues-left-header-info">
+              <img src="{% static 'icons/closed-projects.svg' %}" height="16" />
+              <button class="issues-header-item" id="closed-issue-button">
+                Closed
+              </button>
+            </div>
+        </div>
+    </div>
+    <div id="opened-issues" style="min-height: 400px">
+        <div class="empty-search-container">
+          <img
+            src="{% static 'icons/opened-black.svg' %}"
+            style="color: #768390"
+            height="24"
+          />
+          <p class="empty-search-title">No result matched your search</p>
+          <p class="empty-search-paragraph">
+          </p>
+        </div>
+        
+      
+    </div>
+
+{% endblock %}

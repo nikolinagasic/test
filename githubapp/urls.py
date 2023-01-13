@@ -13,5 +13,8 @@ urlpatterns = [
     path('pulls/', views.pulls, name="pulls"),
     path('logout/', LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='logout'),
     path('profile/', views.profile, name="profile"),
-    path('editprofile/', views.edit_profile, name="edit_profile")
+    path('editprofile/', views.edit_profile, name="edit_profile"),
+    path('projects/', views.projects, name="projects"),
+    path('newproject/', views.newproject, name="newproject"),
+    path('add_issue_to_project/', views.add_issue_to_project, name="add_issue_to_project")  
 ]
