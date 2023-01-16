@@ -85,7 +85,7 @@ jobs:
     - name: Run migrations
       run: |
         export DATABASE_URL=postgres://${{ matrix.database-user }}:${{ matrix.database-password }}@${{ matrix.database-host }}:${{ matrix.database-port }}/${{ matrix.database-name }}
-        export SECRET_KEY=test-secret-key
+        export SECRET_KEY=${{ matrix.database-secret-key }}
         export DEBUG=1
         export ALLOWED_HOSTS=localhost
         export GITHUB_WORKFLOW=True
