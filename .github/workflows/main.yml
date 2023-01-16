@@ -12,7 +12,7 @@ jobs:
       matrix:
         python-version: [ 3.9]
         database-name:
-          - zoo_django_actions
+          - postgres
         database-password:
           - postgres
         database-user:
