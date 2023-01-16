@@ -21,8 +21,6 @@ jobs:
           - 127.0.0.1
         database-port:
           - 5432
-        database-secret-key:
-          - "django-insecure-0fwy55+=4m&5+mzxl_i7zn=m2x2g2v4pdp0hzzc0rn0r2ub*az"
 
     services:
       postgres:
@@ -31,7 +29,7 @@ jobs:
           POSTGRES_DB: ${{ matrix.database-name }}
           POSTGRES_USER: ${{ matrix.database-user }}
           POSTGRES_PASSWORD: ${{ matrix.database-password }}
-          SECRET_KEY: ${{ matrix.database-secret-key }}
+          SECRET_KEY: django-insecure-0fwy55+=4m&5+mzxl_i7zn=m2x2g2v4pdp0hzzc0rn0r2ub*az
         ports:
           - 5432:5432
         # Set health checks to wait until postgres has started
@@ -80,7 +78,7 @@ jobs:
         POSTGRES_DB: ${{ matrix.database-name }}
       run: |
         export DATABASE_URL=postgres://${{ matrix.database-user }}:${{ matrix.database-password }}@${{ matrix.database-host }}:${{ matrix.database-port }}/${{ matrix.database-name }}
-        export SECRET_KEY=test-secret-key
+        export SECRET_KEY=django-insecure-0fwy55+=4m&5+mzxl_i7zn=m2x2g2v4pdp0hzzc0rn0r2ub*az
         export DEBUG=1
     - name: Run migrations
       run: |
