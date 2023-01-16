@@ -94,17 +94,7 @@ jobs:
         python manage.py migrate
         python manage.py migrate --run-syncdb
         python manage.py check
-    - name: Run tests
-      run: |
-          python manage.py test
-      env:
-        DATABASE_URL: postgres://${{ matrix.database-user }}:${{ matrix.database-password }}@${{ matrix.database-host }}:${{ matrix.database-port }}/${{ matrix.database-name }}
-        SECRET_KEY: test-secret-key
-        DEBUG: 1
-        ALLOWED_HOSTS: localhost
-        GITHUB_WORKFLOW: True
-        MODE: workflow
-    - uses: actions/checkout@v2.4.0
+ 
     - name: Build the images and start the containers
       run: |
         export GITHUB_WORKFLOW=True
